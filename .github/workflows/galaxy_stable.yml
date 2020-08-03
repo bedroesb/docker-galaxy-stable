@@ -1,0 +1,18 @@
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build ./galaxy --file galaxy/Dockerfile --tag galaxy-stable
+    - name: Push to Docker Hub
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{ secrets.docker_registry_username }}
+        password: ${{ secrets.docker_registry_password }}
+        repository: bedroesb/galaxy-stable
+        tags: latest
