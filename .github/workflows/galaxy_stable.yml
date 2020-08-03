@@ -7,6 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: updating the repo
+      run: git submodule update --init --recursive 
+    - name: chown
+      run: sudo chown 1450 /tmp && sudo chmod a=rwx /tmp
     - name: Build the Docker image
       run: docker build ./galaxy --file galaxy/Dockerfile --tag galaxy-stable
     - name: Push to Docker Hub
