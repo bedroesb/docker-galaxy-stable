@@ -12,10 +12,11 @@ jobs:
     - name: chown
       run: sudo chown 1450 /tmp && sudo chmod a=rwx /tmp
     - name: Build and push to Docker Hub
-      dockerfile: galaxy/Dockerfile
       uses: docker/build-push-action@v1
       with:
         username: ${{ secrets.docker_registry_username }}
         password: ${{ secrets.docker_registry_password }}
         repository: bedroesb/galaxy-stable
         tags: latest
+        path: galaxy
+        dockerfile: galaxy/Dockerfile
