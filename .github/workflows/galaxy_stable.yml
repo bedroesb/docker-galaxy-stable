@@ -8,7 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: updating the repo
-      run: git submodule update --init --recursive 
+      run: git submodule update --init --recursive --remote
     - name: chown
       run: sudo chown 1450 /tmp && sudo chmod a=rwx /tmp
     - name: Build and push to Docker Hub
