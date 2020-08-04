@@ -208,7 +208,7 @@ RUN mkdir -p /shed_tools $EXPORT_DIR/ftp/ \
         --extra-vars galaxy_extras_docker_legacy=False \
         --extra-vars galaxy_minimum_version=19.01 \
         --extra-vars supervisor_postgres_config_path=$PG_CONF_DIR_DEFAULT/postgresql.conf \
-        --extra-vars supervisor_postgres_autostart=false \
+        --extra-vars supervisor_postgres_autostart=True \
         --extra-vars nginx_use_remote_header=True \
         --tags=galaxyextras,cvmfs -c local \
     # TODO: no clue why this is needed here again

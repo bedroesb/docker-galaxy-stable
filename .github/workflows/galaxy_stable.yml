@@ -17,6 +17,6 @@ jobs:
         username: ${{ secrets.docker_registry_username }}
         password: ${{ secrets.docker_registry_password }}
         repository: bedroesb/galaxy-stable
-        tags: latest
+        tags: test
         path: galaxy
         dockerfile: galaxy/Dockerfile
